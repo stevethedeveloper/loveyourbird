@@ -4,6 +4,7 @@ class Breed(models.Model):
     """Common breeds of pet birds"""
     common_name = models.CharField(max_length=255, blank=False)
     binomial_name = models.CharField(max_length=255, blank=True)
+    summary = models.TextField(blank=True)
     description = models.TextField(blank=True)
     description_source = models.CharField(max_length=255, blank=True)
     food = models.TextField(blank=True)
