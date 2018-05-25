@@ -13,6 +13,7 @@ class Breed(models.Model):
     sound = models.TextField(blank=True)
     talking = models.TextField(blank=True)
     social = models.TextField(blank=True)
+    breeding = models.TextField(blank=True)
     country_of_origin = models.CharField(max_length=255, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
     
