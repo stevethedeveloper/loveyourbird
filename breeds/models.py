@@ -5,6 +5,7 @@ class Breed(models.Model):
     common_name = models.CharField(max_length=255, blank=False)
     binomial_name = models.CharField(max_length=255, blank=True)
     summary = models.TextField(blank=True)
+    pet_information = models.TextField(blank=True)
     description = models.TextField(blank=True)
     description_source = models.CharField(max_length=255, blank=True)
     food = models.TextField(blank=True)
