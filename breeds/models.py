@@ -23,7 +23,7 @@ class Breed(models.Model):
         """Return the common name"""
         return self.common_name
 
-class BreedImages(models.Model):
+class BreedImage(models.Model):
     """Images for bird breeds"""
     breed = models.ForeignKey(Breed, on_delete=models.CASCADE)
     title = models.CharField(max_length=255, blank=True, null=True)
