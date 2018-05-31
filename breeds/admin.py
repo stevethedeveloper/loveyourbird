@@ -7,7 +7,11 @@ class BreedImageInline(admin.StackedInline):
     extra = 1
     
 class BreedAdmin(admin.ModelAdmin):
-    inlines = [BreedImageInline]
+    #inlines = [BreedImageInline]
+    list_display = ('common_name', 'number_of_images')
+
+    def number_of_images(self, obj):
+        return obj.breedimage_set.count()
 
 admin.site.register(Breed, BreedAdmin)
 #admin.site.register(BreedImage)

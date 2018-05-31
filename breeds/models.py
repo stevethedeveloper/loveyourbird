@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Count
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -22,7 +23,7 @@ class Breed(models.Model):
     def __str__(self):
         """Return the common name"""
         return self.common_name
-
+        
 class BreedImage(models.Model):
     """Images for bird breeds"""
     breed = models.ForeignKey(Breed, on_delete=models.CASCADE)
