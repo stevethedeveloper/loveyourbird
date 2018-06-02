@@ -1,0 +1,17 @@
+{% extends "admin/base_site.html" %}
+
+{% block breadcrumbs %}<div class="breadcrumbs">
+    <a href="/admin/">Home</a> 
+    &gt;
+    <a href="/admin/breeds/breed">Breeds</a> 
+    &gt;
+    {{ title }}
+    </div>{% endblock %}
+
+{% block content %}
+    {% for image_record in image_records %}
+        <p>
+            <img src="/media/breed_images/{{ image_record }}" style="max-width: 300px;" />
+        </p>
+    {% endfor %}
+{% endblock %}

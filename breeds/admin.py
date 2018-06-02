@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 from django.urls import reverse, path
 from django.http import HttpResponse
+from django.shortcuts import render
 
 from breeds.models import Breed, BreedImage
 
@@ -33,7 +34,12 @@ class BreedAdmin(admin.ModelAdmin):
         number_of_images.allow_tags = True
             
     def edit_images(self, request, breed_id, *args, **kwargs):
-        return HttpResponse(breed_id)
+        breed_record = Breed.objects.get(pk=breed_id)
+        image_records = BreedImage.objects.filter(breed_id=breed_id)
+        return render(request,
+                        'admin/breed_image_list.html',
+                        context={'title':'Images for ' + breed_record.common_name, 'breed_id':breed_id, 'image_records':image_records})
+        #return HttpResponse(breed_id)
 
 admin.site.register(Breed, BreedAdmin)
 admin.site.register(BreedImage)
