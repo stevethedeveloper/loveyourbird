@@ -1,17 +1,12 @@
 from django.contrib import admin
 from django.utils.html import format_html
 from django.urls import reverse, path
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
 
 from breeds.models import Breed, BreedImage
 
-class BreedImageInline(admin.StackedInline):
-    model = BreedImage
-    extra = 1
-    
 class BreedAdmin(admin.ModelAdmin):
-    #inlines = [BreedImageInline]
     list_display = ('common_name', 'number_of_images')
 
     def get_urls(self):
@@ -41,5 +36,15 @@ class BreedAdmin(admin.ModelAdmin):
                         context={'title':'Images for ' + breed_record.common_name, 'breed_id':breed_id, 'image_records':image_records})
         #return HttpResponse(breed_id)
 
+class BreedImageAdmin(admin.ModelAdmin):
+    deleted_fk = None
+
+    def delete_view(self, request, object_id, extra_context=None):
+        self.deleted_fk = BreedImage.objects.get(id=object_id).breed_id
+        return super(BreedImageAdmin, self).delete_view(request, object_id, extra_context)
+
+    def response_delete(self, request, obj_display, obj_id):
+        return redirect('/admin/breeds/breed/' + str(self.deleted_fk) + '/images/')
+        
 admin.site.register(Breed, BreedAdmin)
-admin.site.register(BreedImage)
+admin.site.register(BreedImage, BreedImageAdmin)

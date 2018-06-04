@@ -13,5 +13,11 @@
         <p>
             <img src="/media/breed_images/{{ image_record }}" style="max-width: 300px;" />
         </p>
+        <p>
+            Title: {{ image_record.title }}
+        </p>
+        <p class="deletelink-box" style="margin-bottom: 100px;">
+            <a href="/admin/breeds/breedimage/{{ image_record.id }}/delete/" class="deletelink">delete</a>
+        </p>
     {% endfor %}
 {% endblock %}
