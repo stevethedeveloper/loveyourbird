@@ -33,7 +33,7 @@ class BreedImage(models.Model):
     date_added = models.DateTimeField(auto_now_add=True, null=True)
 
     def image_tag(self):
-        return format_html('<img src="/media/breed_images/%s" style="max-width: 300px" />' % (self.image_name))
+        return format_html('<img src="/media/%s" style="max-width: 300px" />' % (self.image_name))
 
     image_tag.short_description = 'Image'
     
