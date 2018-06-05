@@ -48,8 +48,8 @@ class BreedImageAdmin(admin.ModelAdmin):
     def response_delete(self, request, obj_display, obj_id):
         return redirect('/admin/breeds/breed/' + str(self.deleted_fk) + '/images/')
         
-    fields = ['image_tag', 'image_name', 'title']
-    readonly_fields = ['image_tag']
+    #fields = ['image_tag', 'image_name', 'title', 'breed_id']
+    #readonly_fields = ['image_tag']
 
 admin.site.register(Breed, BreedAdmin)
 admin.site.register(BreedImage, BreedImageAdmin)
