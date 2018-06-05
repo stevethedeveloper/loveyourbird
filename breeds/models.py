@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import Count
+from django.utils.html import format_html
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -31,6 +32,11 @@ class BreedImage(models.Model):
     image_name = models.ImageField(upload_to='breed_images', null=True)
     date_added = models.DateTimeField(auto_now_add=True, null=True)
 
+    def image_tag(self):
+        return format_html('<img src="/media/breed_images/%s" style="max-width: 300px" />' % (self.image_name))
+
+    image_tag.short_description = 'Image'
+    
     def __str__(self):
         """Return the image name"""
         return self.title

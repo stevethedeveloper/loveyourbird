@@ -37,6 +37,8 @@ class BreedAdmin(admin.ModelAdmin):
         #return HttpResponse(breed_id)
 
 class BreedImageAdmin(admin.ModelAdmin):
+    list_display = ('title', 'image_tag')
+
     deleted_fk = None
 
     def delete_view(self, request, object_id, extra_context=None):
@@ -46,5 +48,8 @@ class BreedImageAdmin(admin.ModelAdmin):
     def response_delete(self, request, obj_display, obj_id):
         return redirect('/admin/breeds/breed/' + str(self.deleted_fk) + '/images/')
         
+    fields = ['image_tag', 'image_name', 'title']
+    readonly_fields = ['image_tag']
+
 admin.site.register(Breed, BreedAdmin)
 admin.site.register(BreedImage, BreedImageAdmin)
