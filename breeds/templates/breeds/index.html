@@ -1,5 +1,13 @@
 {% extends 'breeds/base.html' %}
 
+{% block header %}
+    <!--<div class="jumbotron">
+        <h1>Learn about pet birds.</h1>
+    </div>-->
+{% endblock header %}
+
 {% block content %}
-    <p>Images will go here.</p>
+    {% for image in images %}
+        {{ image.breed }}
+    {% endfor %}
 {% endblock content %}

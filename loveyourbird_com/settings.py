@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     
+    # Bootstrap 3
+    'bootstrap3',
+    
     # My apps
     'breeds',
 ]
@@ -131,3 +134,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media/'
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
+
+BOOTSTRAP3 = {
+    'include_jquery': True,
+    }
