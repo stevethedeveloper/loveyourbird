@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     # Bootstrap 3
     'bootstrap3',
     
+    # django-cleanup for removing files when their records are delete
+    'django_cleanup',
+    
     # My apps
     'breeds',
 ]
