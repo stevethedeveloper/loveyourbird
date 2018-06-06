@@ -6,9 +6,22 @@ from django.shortcuts import render, redirect
 
 from breeds.models import Breed, BreedImage
 
+class BreedImageInline(admin.StackedInline):
+    model = BreedImage
+    extra = 3
+    fields = ['title', 'image_name', 'image_thumb', 'featured']
+    readonly_fields = ['image_thumb']
+
 class BreedAdmin(admin.ModelAdmin):
     list_display = ('common_name', 'number_of_images')
 
+    inlines = [BreedImageInline]
+
+    def number_of_images(self, obj):
+        return str(obj.breedimage_set.count())
+        number_of_images.short_description = '# of images'
+
+"""
     def get_urls(self):
         urls = super().get_urls()
         custom_urls = [
@@ -34,8 +47,8 @@ class BreedAdmin(admin.ModelAdmin):
         return render(request,
                         'admin/breed_image_list.html',
                         context={'title':'Images for ' + breed_record.common_name, 'breed_id':breed_id, 'image_records':image_records})
-        #return HttpResponse(breed_id)
-
+"""
+"""
 class BreedImageAdmin(admin.ModelAdmin):
     list_display = ('title', 'image_tag')
 
@@ -47,9 +60,9 @@ class BreedImageAdmin(admin.ModelAdmin):
 
     def response_delete(self, request, obj_display, obj_id):
         return redirect('/admin/breeds/breed/' + str(self.deleted_fk) + '/images/')
-        
+"""
     #fields = ['image_tag', 'image_name', 'title', 'breed_id']
     #readonly_fields = ['image_tag']
 
 admin.site.register(Breed, BreedAdmin)
-admin.site.register(BreedImage, BreedImageAdmin)
+admin.site.register(BreedImage)
