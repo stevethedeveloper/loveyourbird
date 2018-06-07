@@ -30,7 +30,7 @@ class BreedImage(models.Model):
     breed = models.ForeignKey(Breed, on_delete=models.CASCADE)
     title = models.CharField(max_length=255, blank=True, null=True)
     image_name = models.ImageField(upload_to='breed_images', null=True)
-    featured = models.NullBooleanField()
+    featured = models.NullBooleanField(default=0)
     date_added = models.DateTimeField(auto_now_add=True, null=True)
 
     def image_tag(self):
