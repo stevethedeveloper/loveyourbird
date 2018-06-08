@@ -7,15 +7,15 @@
 {% endblock header %}
 
 {% block content %}
-    <div class="row front-row">
+    <div class="row">
         {% for image in images %}
-        <div class="col-lg-3 col-sm-6 col-xs-12">
-            {{ image.image_front }}
-            <p class="text-center">{{ image.breed }}</p>
+        <div class="col-lg-3 col-sm-6 col-xs-12 front-img-div">
+            <a href="{% url 'breeds:detail' breed_id=image.breed_id %}">{{ image.image_front }}</a>
+            <p class="text-center"><a href="{% url 'breeds:detail' breed_id=image.breed_id %}">{{ image.breed }}</p></a>
         </div>
         {% if forloop.counter|divisibleby:4 %}
     </div>
-    <div class="row front-row">
+    <div class="row">
         {% endif %}
         {% endfor %}
     </div>

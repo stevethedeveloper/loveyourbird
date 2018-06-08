@@ -1,8 +1,35 @@
+.top-logo {
+    max-height: 45px;
+    margin-top: -12px;
+}
+
 .front-images {
     max-width: 200px;
     max-height: 200px;
 }
 
-.front-row {
-    margin-bottom: 100px;
+.front-img-div {
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+.detail-images {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.detail-img-div {
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+.serif {
+    font-family: "Times New Roman", Times, serif;
+}
+
+@media only screen and (max-width: 450px) {
+    .detail-images {
+        max-width: 300px;
+        max-height: 300px;
+    }
 }

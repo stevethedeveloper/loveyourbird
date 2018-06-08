@@ -1,0 +1,50 @@
+{% extends 'breeds/base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-7 col-xs-12 front-img-div">
+            <h2>{{ breed.common_name }}</h2>
+            <h3 class="serif">{{ breed.summary|safe }}</h3>
+
+            {% if breed.description %}
+            <h3>Details</h2>
+            <div class="serif">{{ breed.description|safe }}</div>
+            {% endif %}
+
+            {% if breed.size %}
+            <h3>Size</h2>
+            <div class="serif">{{ breed.size|safe }}</div>
+            {% endif %}
+            
+            {% if breed.food %}
+            <h3>Feeding</h2>
+            <div class="serif">{{ breed.food|safe }}</div>
+            {% endif %}
+
+            {% if breed.social %}
+            <h3>Social</h2>
+            <div class="serif">{{ breed.social|safe }}</div>
+            {% endif %}
+
+            {% if breed.pet_information %}
+            <h3>Pets</h2>
+            <div class="serif">{{ breed.pet_information|safe }}</div>
+            {% endif %}
+
+            {% if breed.talking %}
+            <h3>Talking</h2>
+            <div class="serif">{{ breed.talking|safe }}</div>
+            {% endif %}
+
+            {% if breed.breeding %}
+            <h3>Breeding</h2>
+            <div class="serif">{{ breed.breeding|safe }}</div>
+            {% endif %}
+        </div>
+        <div class="col-lg-5 col-xs-12 front-img-div pull-right">
+        {% for image in breed.breedimage_set.all %}
+            <div class="detail-img-div">{{ image.image_detail }}</div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

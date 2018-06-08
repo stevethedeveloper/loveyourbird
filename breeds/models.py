@@ -49,6 +49,11 @@ class BreedImage(models.Model):
 
     image_tag.short_description = 'Image'
 
+    def image_detail(self):
+        return format_html('<img src="/media/%s" class="img-rounded img-responsive center-block detail-images" />' % (self.image_name))
+
+    image_tag.short_description = 'Image'
+
     def __str__(self):
         """Return the image name"""
         return self.title
