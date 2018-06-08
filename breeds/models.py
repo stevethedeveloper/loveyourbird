@@ -34,15 +34,20 @@ class BreedImage(models.Model):
     date_added = models.DateTimeField(auto_now_add=True, null=True)
 
     def image_tag(self):
-        return format_html('<img src="/media/%s" style="max-width: 300px" />' % (self.image_name))
+        return format_html('<img src="/media/%s" style="max-width: 300px;max-height: 300px;" />' % (self.image_name))
 
     image_tag.short_description = 'Image'
     
     def image_thumb(self):
         if (self.image_name):
-            return format_html('<img src="/media/%s" style="max-width: 100px" />' % (self.image_name))
+            return format_html('<img src="/media/%s" style="max-width: 100px;" />' % (self.image_name))
         return None
     image_thumb.short_description = 'Image Preview'
+
+    def image_front(self):
+        return format_html('<img src="/media/%s" class="img-rounded img-responsive center-block front-images" />' % (self.image_name))
+
+    image_tag.short_description = 'Image'
 
     def __str__(self):
         """Return the image name"""

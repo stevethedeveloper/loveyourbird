@@ -1,3 +1,4 @@
+{% load static %}
 {% load bootstrap3 %}
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +7,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>LoveYourBird.com</title>
+        
         {% bootstrap_css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'breeds/style.css' %}" />
+
         {% bootstrap_javascript %}
     </head>
 
@@ -14,7 +18,7 @@
     
     <!-- Static navbar -->
 
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed"

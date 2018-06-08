@@ -7,7 +7,16 @@
 {% endblock header %}
 
 {% block content %}
-    {% for image in images %}
-        {{ image.breed }}
-    {% endfor %}
+    <div class="row front-row">
+        {% for image in images %}
+        <div class="col-lg-3 col-sm-6 col-xs-12">
+            {{ image.image_front }}
+            <p class="text-center">{{ image.breed }}</p>
+        </div>
+        {% if forloop.counter|divisibleby:4 %}
+    </div>
+    <div class="row front-row">
+        {% endif %}
+        {% endfor %}
+    </div>
 {% endblock content %}
