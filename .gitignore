@@ -89,3 +89,6 @@ local_settings.py
 db.sqlite3
 
 shell_scripts/
+
+loveyourbird_com/settings.py
+lyb_env/
