@@ -92,3 +92,5 @@ shell_scripts/
 
 loveyourbird_com/settings.py
 lyb_env/
+
+staticfiles/
