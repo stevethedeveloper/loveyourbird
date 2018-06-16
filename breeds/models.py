@@ -23,12 +23,12 @@ class Breed(models.Model):
     
     def __str__(self):
         """Return the common name"""
-        return self.common_name
+        return str(self.common_name)
         
 class BreedImage(models.Model):
     """Images for bird breeds"""
     breed = models.ForeignKey(Breed, on_delete=models.CASCADE)
-    title = models.CharField(max_length=255, blank=True, null=True)
+    title = models.CharField(max_length=255)
     image_name = models.ImageField(upload_to='breed_images', null=True)
     featured = models.NullBooleanField(default=0)
     date_added = models.DateTimeField(auto_now_add=True, null=True)
@@ -56,5 +56,5 @@ class BreedImage(models.Model):
 
     def __str__(self):
         """Return the image name"""
-        return self.title
+        return str(self.title)
     
