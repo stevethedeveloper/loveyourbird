@@ -4,7 +4,7 @@ This project is both a method to show Python and Django skills, and serves as a 
 
 ## Testing the Site
 
-You can test the site at [LoveYourBird.com](http://www.loveyourbird.com/) and the admin at [LoveYourBird.com](http://www.loveyourbird.com/admin) with username "testing" and password "loveyourbird".  Any changes will be periodically erased, so feel free to poke around!
+You can test the site at [LoveYourBird.com](http://www.loveyourbird.com/) and the admin at [LoveYourBird.com/admin](http://www.loveyourbird.com/admin) with username "testing" and password "loveyourbird".  Any changes will be periodically erased, so feel free to poke around!
 
 ## About the Project
 
@@ -17,9 +17,13 @@ There are many technologies, methodologies, and concepts utilized so far in this
 * Bootstrap integration
 * Responsive design
 
+### Deployment
+
+This site is hosted at Digital Ocean, hand configured using nginx, Gunicorn, PostgreSQL, and Supervisor
+
 ## Author
 
-* **Stephen Walton** - *Initial work* - [SteveTheDeveloper](http://stevethedeveloper.com)
+* **Stephen Walton** - [SteveTheDeveloper](http://stevethedeveloper.com)
 
 ## License
 
