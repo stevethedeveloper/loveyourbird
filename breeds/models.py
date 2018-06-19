@@ -37,11 +37,13 @@ class BreedImage(models.Model):
         return format_html('<img src="/media/%s" style="max-width: 300px;max-height: 300px;" />' % (self.image_name))
 
     image_tag.short_description = 'Image'
-    
+   
+    """The following functions define tags for displaying images at different sizes"""
     def image_thumb(self):
         if (self.image_name):
             return format_html('<img src="/media/%s" style="max-width: 100px;" />' % (self.image_name))
         return None
+   
     image_thumb.short_description = 'Image Preview'
 
     def image_front(self):

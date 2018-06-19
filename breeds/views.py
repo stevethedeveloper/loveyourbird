@@ -15,7 +15,7 @@ def index(request):
     return render(request, 'breeds/index.html', context)
 
 def detail(request, breed_id):
-    """Home page for breeds"""
+    """Detail page for breed"""
     
     #Get all breed featured images
     breed = Breed.objects.get(pk=breed_id)

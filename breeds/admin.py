@@ -5,6 +5,7 @@ from django.core.exceptions import ValidationError
 from breeds.models import Breed, BreedImage
 
 class ImageInlineFormSet(BaseInlineFormSet):
+    """Clean and validate images on inline form"""
     def clean(self):
         super(ImageInlineFormSet, self).clean()
         total = 0
@@ -18,6 +19,7 @@ class ImageInlineFormSet(BaseInlineFormSet):
             raise ValidationError('A breed should have one featured image.  Please select one image as the default.')
 
 class BreedImageInline(admin.StackedInline):
+    """Set up inline form for images on the Breed edit page"""
     model = BreedImage
     formset = ImageInlineFormSet
     extra = 3
@@ -25,13 +27,15 @@ class BreedImageInline(admin.StackedInline):
     readonly_fields = ['image_thumb']
 
 class BreedAdmin(admin.ModelAdmin):
+    """Customize the list display"""
     list_display = ('common_name', 'number_of_images')
 
     inlines = [BreedImageInline]
-
+    
+    # Get number of images for each breed
     def number_of_images(self, obj):
-        return str(obj.breedimage_set.count())
         number_of_images.short_description = '# of images'
+        return str(obj.breedimage_set.count())
 
 admin.site.register(Breed, BreedAdmin)
 admin.site.register(BreedImage)
