@@ -19,7 +19,7 @@ There are many technologies, methodologies, and concepts utilized so far in this
 
 ### Deployment
 
-This site is hosted at Digital Ocean, hand configured using nginx, Gunicorn, PostgreSQL, and Supervisor.
+This site is hosted at Digital Ocean, using nginx, Gunicorn, PostgreSQL, and Supervisor.
 
 ## Author
 
