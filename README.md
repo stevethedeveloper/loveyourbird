@@ -2,10 +2,6 @@
 
 This project is both a method to show Python and Django skills, and serves as a foundation for [LoveYourBird.com](http://www.loveyourbird.com/).  Ultimately, this will be an API with a JS frontend.
 
-## Testing the Site
-
-You can test the site at [LoveYourBird.com](http://www.loveyourbird.com/) and the admin at [LoveYourBird.com/admin](http://www.loveyourbird.com/admin) with username "testing" and password "loveyourbird".  Any changes will be periodically erased, so feel free to poke around!
-
 ## About the Project
 
 There are many technologies, methodologies, and concepts utilized so far in this project, including but not limited to:
